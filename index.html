@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мнимая единица и комплексные числа</title>
+    <style>
+        p {
+            text-indent: 25px;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .centered {
+            text-align: center;
+        }
+
+        li {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #35424a, #2c3e50);
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            margin: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: #35424a;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #35424a;
+            color: #ffffff;
+        }
+
+        section {
+            padding: 30px;
+            background: #ffffff;
+            margin: 20px auto;
+            max-width: 900px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: linear-gradient(to right, #35424a, #2c3e50);
+            color: #ffffff;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        .example-code {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-left: 4px solid #35424a;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        h2 {
+            color: #35424a;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: #2c3e50;
+            margin-top: 25px;
+        }
+
+        .portret-img {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .portret-img img {
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 100%;
+            height: auto;
+        }
+
+        .formula {
+            font-style: italic;
+            background-color: #f9f9f9;
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #35424a;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            text-decoration: none;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 15px;
+                margin: 10px;
+            }
+
+            nav a {
+                margin: 0 5px;
+                font-size: 14px;
+            }
+
+            p,
+            li {
+                font-size: 16px;
+            }
+        }
+
+        .highlight {
+            background-color: #fffde7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #35424a;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Мнимая единица и комплексные числа</h1>
+    </header>
+
+    <nav>
+        <a href="#introduction">Введение</a>
+        <a href="#history">История</a>
+        <a href="#applications">Применение</a>
+        <a href="#conclusion">Заключение</a>
+    </nav>
+
+    <section id="introduction">
+        <h2>Введение в комплексные числа</h2>
+        <p>Мнимая единица, обозначаемая буквой <strong>&#8520</strong>, является основой комплексных чисел.
+            В математике <strong>комплексное число</strong> - это элемент системы счисления, который расширяет
+            действительные числа с помощью мнимой единицы, которая удовлетворяет уравнению <strong>&#8520<sup>2</sup> =
+                -1</strong>.
+        </p>
+        <div align="center"><img width="100px" src="img/i-sqrt.png" alt="Квадратный корень из -1"></div>
+
+        <p>Каждое <strong>комплексное число</strong> может быть выражено в виде <strong>a + b&#8520</strong>,
+            где <strong>a</strong> и <strong>b</strong> - действительные числа. Поскольку ни одно действительное
+            число не удовлетворяет приведенному выше уравнению, &#8520 Рене Декарт (французский философ, математик и
+            естествоиспытатель) назвал мнимым числом. Для комплексного числа
+            <strong>a + b&#8520</strong>, <strong>a</strong> - называется действительной частью, а <strong>b</strong> -
+            называется мнимой частью.
+        </p>
+
+        <div align="center">
+            <img width="512px" src="img/fullsize.jpg" alt="Комплексные числа на плоскости">
+            <div class="image-caption">Набор комплексных чисел обозначается <strong>C</strong>.</div>
+        </div>
+
+        <p>Число &#8520 на комплексной плоскости. Вещественные числа лежат на горизонтальной оси, чисто мнимые — на
+            вертикальной</p>
+
+        <div align="center">
+            <img width="512px" src="img/i-krug.png" alt="Число i на комплексной плоскости">
+        </div>
+
+        <p>Несмотря на историческую номенклатуру, "мнимые" комплексные числа имеют
+            математическое существование, столь же прочное, как и действительные числа, и они являются фундаментальными
+            инструментами в научном описании мира природы.</p>
+
+        <p>Введение мнимой единицы позволяет расширить поле вещественных чисел до поля комплексных чисел.
+            Одной из причин введения мнимой единицы является то, что не каждое полиномиальное уравнение с вещественными
+            коэффициентами имеет решения в поле вещественных чисел.
+            Также можно упомянуть, что мнимые (комплексные) числа — важнейшая тема курса математики.
+            Она не только имеет большое значение в современной науке, но и входит в программу обучения большинства
+            вузов, в том числе и без технической направленности.</p>
+
+        <div class="highlight">
+            <p>Важно понимать, что комплексные числа не являются "воображаемыми" в смысле их отсутствия в реальном мире.
+                Они представляют собой действительные математические объекты с чёткими правилами операций, которые
+                находят применение в различных областях науки и техники.</p>
+        </div>
+
+        <div align="center"><img width="100px" src="img/i2=-1.gif" alt="i^2 = -1 анимация"></div>
+    </section>
+
+    <section id="history">
+        <h2>История появления и развития</h2>
+        <p>Комплексные числа впервые были введены в первой половине XVI века итальянским математиком <strong>Никколо
+                Фонтана Тартальей</strong></p>
+
+        <div align="center" class="portret-img">
+            <img width="512px" src="img/niccolo.jpg" alt="Портрет Никколо Тартальи">
+            <div class="image-caption">Никколо Фонтана Тарталья (1499-1557)</div>
+        </div>
+
+        <p>
+            (итальянский математик-самоучка, педагог, инженер фортификационных сооружений 15-16 веков).
+            Он получил выражение для корня кубического уравнения через некоторые параметры, для нахождения которых
+            составляется система.
+            Но было выяснено, что такая система не для всех кубических уравнений имела решение в действительных числах.
+            Это непонятное на то время явление объяснил в 1572 году <strong>Рафаэль Бомбелли</strong>
+        </p>
+
+        <div align="center" class="portret-img">
+            <img width="512px" src="img/bombeli.jpg" alt="Портрет Рафаэля Бомбелли">
+            <div class="image-caption">Рафаэль Бомбелли (1526-1572)</div>
+        </div>
+
+        <p>
+            обосновав её
+            отличие от положительных и отрицательных чисел.
+            Он написал книгу под названием <strong>«Просто алгебра»</strong>, где попытался объяснить математику людям
+            без дипломов,
+            что, по сути, было введением комплексных чисел и действий над ними.
+        </p>
+
+        <ul>
+            <li><strong>1545 год:</strong> Итальянский математик, механик <strong>Герон(Герардо)</strong> (занимался
+                геометрией, механикой, гидростатикой, оптикой.
+                Автор работ, в которых систематически изложил основные достижения античного мира в области прикладной
+                механик) впервые использует
+                мнимые числа в своей работе <strong>"Великое искусство, или об алгебраических правилах"</strong>.</li>
+
+            <li><strong>1637 год:</strong> <strong>Рене Декарт</strong>
+                <div align="center" class="portret-img">
+                    <img width="512px" src="img/dekary.jpg" alt="Портрет Рене Декарта">
+                    <div class="image-caption">Рене Декарт (1596-1650)</div>
+                </div>
+                ввёл термин «мнимое число» в 1637 году в
+                книге <strong>«La Géométrie»</strong>.
+                <p>Он официально использовал эти термины и для обозначения «комплексных чисел». Изначально термин
+                    носил уничижительный смысл, поскольку такие числа
+                    считались вымышленными или бесполезными. Однако Декарт сформулировал (хотя и не доказал)
+                    основную теорему алгебры: общее число вещественных и комплексных
+                    корней многочлена равно его степени. Отрицательные корни Декарт по традиции именовал ложными,
+                    однако объединял их с положительными термином
+                    «действительные числа», отделяя от мнимых (комплексных).</p>
+                <p>Лишь после работ Леонарда Эйлера и Карла Гаусса это понятие получило признание в научном
+                    сообществе.</p>
+            </li>
+
+            <li><strong>1777 год: Леонард Эйлер</strong>
+                <div align="center" class="portret-img">
+                    <img width="512px" src="img/эйлер.webp" alt="Портрет Леонарда Эйлера">
+                    <div class="image-caption">Леонард Эйлер (1707-1783)</div>
+                </div>
+                (швейцарский учёный, автор более 850 научных трудов по
+                математике, механике, физике и даже теории музыки)
+                начинает использовать букву &#8520 для обозначения мнимой единицы. Для этого он взял первую букву
+                латинского слова «imaginarius» (мнимый).
+            </li>
+
+            <li><strong>19 век:</strong> Математики, такие как <strong>Карл Фридрих Гаусс</strong>
+                <div align="center" class="portret-img">
+                    <img width="512px" src="img/carl.jpg" alt="Портрет Карла Фридриха Гаусса">
+                    <div class="image-caption">Карл Фридрих Гаусс (1777-1855)</div>
+                </div>
+                <strong>Августин-Луи Коши</strong>
+                <div align="center" class="portret-img">
+                    <img width="512px" src="img/muther-fucker.png" alt="Портрет Августина-Луи Коши">
+                    <div class="image-caption">Августин-Луи Коши (1789-1857)</div>
+                </div>
+                развивают теорию комплексных чисел.
+                <p>Карл Фридрих Гаусс внёс значительный вклад в развитие теории комплексных чисел. Он дал общую
+                    теоретическую трактовку и построил арифметику
+                    комплексных чисел, ввёл ассоциированные числа, разложение на множители, простые комплексные
+                    числа, норму комплексного числа, вычеты по комплексному модулю.
+                    Также Гаусс сформулировал и частично доказал биквадратичный закон взаимности.</p>
+                <p>Августин-Луи Коши осуществил и упорядочил развитие теории
+                    комплексных чисел, заложив основы общей теории функций комплексной переменной. Благодаря Коши в
+                    математике активно стали использоваться такие понятия,
+                    как модуль комплексного числа и сопряжённые комплексные числа. В 1829–1832 годах учёный создал
+                    теорию вычетов.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="applications">
+        <h2>Применение в физике, математике и инженерии</h2>
+        <p>Мнимая единица и комплексные числа находят разнообразное применение в различных областях науки и техники:</p>
+
+        <h3>1. Физика</h3>
+        <p>Мнимая единица в физике используется для решения задач, которые нельзя решить обычными числами:</p>
+        <ul>
+            <li><strong>В электричестве:</strong> помогают анализировать переменный ток, делая расчеты проще. В
+                электротехнике мнимую единицу обозначают буквой <strong><i>j</i></strong>, потому что
+                <strong><i>i</i></strong> уже используется для обозначения тока.
+            </li>
+            <li><strong>В электрических цепях:</strong> используются для расчета сопротивления. Действительная часть
+                — это активное сопротивление, а мнимая часть — реактивное.</li>
+            <li><strong>В волнах:</strong> помогают описывать как волны распространяются и затухают. Например,
+                мнимая часть показывает, насколько быстро звуковая волна ослабевает.
+            </li>
+            <li><strong>В квантовой механике:</strong> волновая функция Шрёдингера часто записывается в комплексной
+                форме, что позволяет описывать квантовые состояния частиц. Операторы квантовой механики также используют
+                комплексные числа.</li>
+            <li><strong>В теории относительности:</strong> комплексные числа используются для описания четырехмерного
+                пространства-времени и преобразований Лоренца.</li>
+        </ul>
+
+        <div class="example-code">
+            <code>
+    Мнимая единица расширяет границы нашего понимания сложных систем и процессов в физике, помогая
+    обозначать различные свойства.
+            </code>
+        </div>
+
+        <h3>2. Математика</h3>
+        <p>В математике мнимые числа позволяют:</p>
+        <ul>
+            <li><strong>Решать уравнения, не имеющие обычных решений.</strong> Например, уравнение x² + 1 = 0 не имеет
+                решений среди обычных чисел, но имеет решения в комплексных числах: x = i и x = -i.</li>
+            <li><strong>Формула Эйлера:</strong> одна из самых элегантных формул в математике, связывающая
+                экспоненциальную функцию с тригонометрическими: e<sup>ix</sup> = cos(x) + i·sin(x)</li>
+            <li><strong>Функции комплексной переменной:</strong> открывают новые области математики, включая конформные
+                отображения, теорию вычетов и аналитическое продолжение.</li>
+            <li><strong>Фундаментальная теорема алгебры:</strong> утверждает, что любой многочлен степени n с
+                комплексными коэффициентами имеет ровно n корней в поле комплексных чисел (с учетом кратности).</li>
+        </ul>
+
+        <table>
+            <tr>
+                <th>Операция</th>
+                <th>Формула</th>
+                <th>Пример</th>
+            </tr>
+            <tr>
+                <td>Сложение</td>
+                <td>(a + bi) + (c + di) = (a + c) + (b + d)i</td>
+                <td>(3 + 2i) + (1 + 4i) = 4 + 6i</td>
+            </tr>
+            <tr>
+                <td>Умножение</td>
+                <td>(a + bi)(c + di) = (ac - bd) + (ad + bc)i</td>
+                <td>(3 + 2i)(1 + 4i) = 3 + 12i + 2i + 8i² = 3 + 14i - 8 = -5 + 14i</td>
+            </tr>
+            <tr>
+                <td>Комплексное сопряжение</td>
+                <td>(a + bi)* = a - bi</td>
+                <td>(3 + 2i)* = 3 - 2i</td>
+            </tr>
+            <tr>
+                <td>Модуль</td>
+                <td>|a + bi| = √(a² + b²)</td>
+                <td>|3 + 4i| = √(3² + 4²) = √25 = 5</td>
+            </tr>
+        </table>
+
+
+        <!-- Раздел о решении квадратных уравнений с комплексными числами -->
+        <section id="quadratic-equations">
+            <h3>Решение квадратных уравнений с помощью комплексных чисел</h3>
+            <p>В математике мнимые числа позволяют:</p>
+            <ul>
+                <li><strong>Решать уравнения, не имеющие обычных решений.</strong> Например, уравнение
+                    <math display="inline">
+                        <msup>
+                            <mi>x</mi>
+                            <mn>2</mn>
+                        </msup>
+                        <mo>+</mo>
+                        <mn>1</mn>
+                        <mo>=</mo>
+                        <mn>0</mn>
+                    </math>
+                    не имеет решений среди обычных чисел, но имеет решения в комплексных числах:
+                    <math display="inline">
+                        <mi>x</mi>
+                        <mo>=</mo>
+                        <mi>i</mi>
+                    </math> и
+                    <math display="inline">
+                        <mi>x</mi>
+                        <mo>=</mo>
+                        <mo>-</mo>
+                        <mi>i</mi>
+                    </math>.
+                </li>
+                <li><strong>Квадратные уравнения с отрицательным дискриминантом:</strong> Когда дискриминант
+                    <math display="inline">
+                        <mi>D</mi>
+                        <mo>=</mo>
+                        <msup>
+                            <mi>b</mi>
+                            <mn>2</mn>
+                        </msup>
+                        <mo>-</mo>
+                        <mn>4</mn>
+                        <mi>a</mi>
+                        <mi>c</mi>
+                    </math>
+                    отрицательный, уравнение
+                    <math display="inline">
+                        <mi>a</mi>
+                        <msup>
+                            <mi>x</mi>
+                            <mn>2</mn>
+                        </msup>
+                        <mo>+</mo>
+                        <mi>b</mi>
+                        <mi>x</mi>
+                        <mo>+</mo>
+                        <mi>c</mi>
+                        <mo>=</mo>
+                        <mn>0</mn>
+                    </math>
+                    имеет два комплексных корня.
+                    <p class="centered"><strong>Пример:</strong> Решим уравнение
+                        <math display="inline">
+                            <msup>
+                                <mi>x</mi>
+                                <mn>2</mn>
+                            </msup>
+                            <mo>+</mo>
+                            <mn>4</mn>
+                            <mi>x</mi>
+                            <mo>+</mo>
+                            <mn>5</mn>
+                            <mo>=</mo>
+                            <mn>0</mn>
+                        </math>
+                    </p>
+                    <p class="centered">Найдем дискриминант:
+                        <math display="inline">
+                            <mi>D</mi>
+                            <mo>=</mo>
+                            <msup>
+                                <mn>4</mn>
+                                <mn>2</mn>
+                            </msup>
+                            <mo>-</mo>
+                            <mn>4</mn>
+                            <mo>×</mo>
+                            <mn>1</mn>
+                            <mo>×</mo>
+                            <mn>5</mn>
+                            <mo>=</mo>
+                            <mn>16</mn>
+                            <mo>-</mo>
+                            <mn>20</mn>
+                            <mo>=</mo>
+                            <mo>-</mo>
+                            <mn>4</mn>
+                        </math>
+                    </p>
+                    <p class="centered">Поскольку D < 0, решения будут комплексными:<br>
+                            <math display="inline">
+                                <msub>
+                                    <mi>x</mi>
+                                    <mn>1</mn>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mo>-</mo>
+                                        <mn>4</mn>
+                                        <mo>+</mo>
+                                        <msqrt>
+                                            <mrow>
+                                                <mo>-</mo>
+                                                <mn>4</mn>
+                                            </mrow>
+                                        </msqrt>
+                                    </mrow>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mo>-</mo>
+                                        <mn>4</mn>
+                                        <mo>+</mo>
+                                        <mn>2</mn>
+                                        <mi>i</mi>
+                                    </mrow>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mo>-</mo>
+                                <mn>2</mn>
+                                <mo>+</mo>
+                                <mi>i</mi>
+                            </math><br>
+                            <math display="inline">
+                                <msub>
+                                    <mi>x</mi>
+                                    <mn>2</mn>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mo>-</mo>
+                                        <mn>4</mn>
+                                        <mo>-</mo>
+                                        <msqrt>
+                                            <mrow>
+                                                <mo>-</mo>
+                                                <mn>4</mn>
+                                            </mrow>
+                                        </msqrt>
+                                    </mrow>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mo>-</mo>
+                                        <mn>4</mn>
+                                        <mo>-</mo>
+                                        <mn>2</mn>
+                                        <mi>i</mi>
+                                    </mrow>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mo>-</mo>
+                                <mn>2</mn>
+                                <mo>-</mo>
+                                <mi>i</mi>
+                            </math>
+                    </p>
+                    <p class="centered">Ответ:
+                        <math display="inline">
+                            <msub>
+                                <mi>x</mi>
+                                <mn>1</mn>
+                            </msub>
+                            <mo>=</mo>
+                            <mo>-</mo>
+                            <mn>2</mn>
+                            <mo>+</mo>
+                            <mi>i</mi>
+                        </math>,
+                        <math display="inline">
+                            <msub>
+                                <mi>x</mi>
+                                <mn>2</mn>
+                            </msub>
+                            <mo>=</mo>
+                            <mo>-</mo>
+                            <mn>2</mn>
+                            <mo>-</mo>
+                            <mi>i</mi>
+                        </math>
+                    </p>
+                </li>
+                <li><strong>Описывать колебания и циклические процессы:</strong> с их помощью можно одновременно
+                    рассчитать и частоту, и фазу сигнала.</li>
+                <li><strong>Дифференциальные уравнения с комплексными корнями:</strong> Дифференциальные уравнения
+                    описывают, как система меняется со временем. Когда у них есть комплексные корни, это часто указывает
+                    на колебательный процесс.
+                    <p class="centered"><strong>Пример:</strong> Дифференциальное уравнение колебательной системы:<br>
+                        <math display="inline">
+                            <msup>
+                                <mi>y</mi>
+                                <mo>′′</mo>
+                            </msup>
+                            <mo>+</mo>
+                            <mn>4</mn>
+                            <msup>
+                                <mi>y</mi>
+                                <mo>′</mo>
+                            </msup>
+                            <mo>+</mo>
+                            <mn>5</mn>
+                            <mi>y</mi>
+                            <mo>=</mo>
+                            <mn>0</mn>
+                        </math>
+                    </p>
+                    <p class="centered">Это уравнение описывает затухающие колебания, и его характеристическое уравнение
+                        <math display="inline">
+                            <msup>
+                                <mi>r</mi>
+                                <mn>2</mn>
+                            </msup>
+                            <mo>+</mo>
+                            <mn>4</mn>
+                            <mi>r</mi>
+                            <mo>+</mo>
+                            <mn>5</mn>
+                            <mo>=</mo>
+                            <mn>0</mn>
+                        </math>
+                        имеет комплексные корни.
+                    </p>
+                    <p class="centered">Найдем корни характеристического уравнения:<br>
+                        <math display="inline">
+                            <mi>r</mi>
+                            <mo>=</mo>
+                            <mfrac>
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>4</mn>
+                                    <mo>±</mo>
+                                    <msqrt>
+                                        <mrow>
+                                            <mn>16</mn>
+                                            <mo>-</mo>
+                                            <mn>20</mn>
+                                        </mrow>
+                                    </msqrt>
+                                </mrow>
+                                <mn>2</mn>
+                            </mfrac>
+                            <mo>=</mo>
+                            <mfrac>
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>4</mn>
+                                    <mo>±</mo>
+                                    <msqrt>
+                                        <mrow>
+                                            <mo>-</mo>
+                                            <mn>4</mn>
+                                        </mrow>
+                                    </msqrt>
+                                </mrow>
+                                <mn>2</mn>
+                            </mfrac>
+                            <mo>=</mo>
+                            <mfrac>
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>4</mn>
+                                    <mo>±</mo>
+                                    <mn>2</mn>
+                                    <mi>i</mi>
+                                </mrow>
+                                <mn>2</mn>
+                            </mfrac>
+                            <mo>=</mo>
+                            <mo>-</mo>
+                            <mn>2</mn>
+                            <mo>±</mo>
+                            <mi>i</mi>
+                        </math>
+                    </p>
+                    <p class="centered">Таким образом,
+                        <math display="inline">
+                            <msub>
+                                <mi>r</mi>
+                                <mn>1</mn>
+                            </msub>
+                            <mo>=</mo>
+                            <mo>-</mo>
+                            <mn>2</mn>
+                            <mo>+</mo>
+                            <mi>i</mi>
+                        </math>
+                        и
+                        <math display="inline">
+                            <msub>
+                                <mi>r</mi>
+                                <mn>2</mn>
+                            </msub>
+                            <mo>=</mo>
+                            <mo>-</mo>
+                            <mn>2</mn>
+                            <mo>-</mo>
+                            <mi>i</mi>
+                        </math>
+                    </p>
+                    <p class="centered">Решение дифференциального уравнения будет иметь вид:<br>
+                        <math display="inline">
+                            <mi>y</mi>
+                            <mo>=</mo>
+                            <msup>
+                                <mi>e</mi>
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>2</mn>
+                                    <mi>t</mi>
+                                </mrow>
+                            </msup>
+                            <mo>(</mo>
+                            <msub>
+                                <mi>C</mi>
+                                <mn>1</mn>
+                            </msub>
+                            <mi>cos</mi>
+                            <mo>(</mo>
+                            <mi>t</mi>
+                            <mo>)</mo>
+                            <mo>+</mo>
+                            <msub>
+                                <mi>C</mi>
+                                <mn>2</mn>
+                            </msub>
+                            <mi>sin</mi>
+                            <mo>(</mo>
+                            <mi>t</mi>
+                            <mo>)</mo>
+                            <mo>)</mo>
+                        </math>
+                    </p>
+                    <p>Где <math display="inline">
+                            <msub>
+                                <mi>C</mi>
+                                <mn>1</mn>
+                            </msub>
+                        </math> и <math display="inline">
+                            <msub>
+                                <mi>C</mi>
+                                <mn>2</mn>
+                            </msub>
+                        </math> — произвольные постоянные. Это затухающее колебание с частотой 1 и коэффициентом
+                        затухания 2.</p>
+                </li>
+            </ul>
+
+            <div class="highlight">
+                <p>Обратите внимание, что комплексные корни квадратного уравнения всегда появляются парами в виде
+                    комплексно сопряженных чисел: если <math display="inline">
+                        <mi>z</mi>
+                        <mo>=</mo>
+                        <mi>a</mi>
+                        <mo>+</mo>
+                        <mi>b</mi>
+                        <mi>i</mi>
+                    </math> является корнем, то и <math display="inline">
+                        <mi>z</mi>
+                        <mo>=</mo>
+                        <mi>a</mi>
+                        <mo>-</mo>
+                        <mi>b</mi>
+                        <mi>i</mi>
+                    </math> также будет корнем.</p>
+            </div>
+        </section>
+
+        <!-- Раздел о преобразовании Фурье -->
+        <section id="fourier-transform">
+            <h3>Преобразование Фурье и комплексные числа</h3>
+
+            <p>Преобразование Фурье — один из самых мощных математических инструментов, неразрывно связанный с
+                комплексными числами. Оно позволяет разложить любую функцию или сигнал на сумму синусоид различных
+                частот.</p>
+
+            <div class="highlight">
+                <p>Комплексные числа делают преобразование Фурье элегантным и мощным благодаря формуле Эйлера: <math
+                        display="inline">
+                        <msup>
+                            <mi>e</mi>
+                            <mrow>
+                                <mi>i</mi>
+                                <mi>ω</mi>
+                                <mi>t</mi>
+                            </mrow>
+                        </msup>
+                        <mo>=</mo>
+                        <mi>cos</mi>
+                        <mo>(</mo>
+                        <mi>ω</mi>
+                        <mi>t</mi>
+                        <mo>)</mo>
+                        <mo>+</mo>
+                        <mi>i</mi>
+                        <mi>sin</mi>
+                        <mo>(</mo>
+                        <mi>ω</mi>
+                        <mi>t</mi>
+                        <mo>)</mo>
+                    </math></p>
+            </div>
+
+            <h4>Математическое определение</h4>
+
+            <p>Для функции f(t), преобразование Фурье F(ω) определяется формулой:</p>
+
+            <p class="centered">
+                <math display="inline">
+                    <mi>F</mi>
+                    <mo>(</mo>
+                    <mi>ω</mi>
+                    <mo>)</mo>
+                    <mo>=</mo>
+                    <msubsup>
+                        <mo>∫</mo>
+                        <mrow>
+                            <mo>-</mo>
+                            <mi>∞</mi>
+                        </mrow>
+                        <mi>∞</mi>
+                    </msubsup>
+                    <mi>f</mi>
+                    <mo>(</mo>
+                    <mi>t</mi>
+                    <mo>)</mo>
+                    <msup>
+                        <mi>e</mi>
+                        <mrow>
+                            <mo>-</mo>
+                            <mi>i</mi>
+                            <mi>ω</mi>
+                            <mi>t</mi>
+                        </mrow>
+                    </msup>
+                    <mi>dt</mi>
+                </math>
+            </p>
+
+            <p>А обратное преобразование Фурье:</p>
+
+            <p class="centered">
+                <math display="inline">
+                    <mi>f</mi>
+                    <mo>(</mo>
+                    <mi>t</mi>
+                    <mo>)</mo>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mn>1</mn>
+                        <mrow>
+                            <mn>2</mn>
+                            <mi>π</mi>
+                        </mrow>
+                    </mfrac>
+                    <msubsup>
+                        <mo>∫</mo>
+                        <mrow>
+                            <mo>-</mo>
+                            <mi>∞</mi>
+                        </mrow>
+                        <mi>∞</mi>
+                    </msubsup>
+                    <mi>F</mi>
+                    <mo>(</mo>
+                    <mi>ω</mi>
+                    <mo>)</mo>
+                    <msup>
+                        <mi>e</mi>
+                        <mrow>
+                            <mi>i</mi>
+                            <mi>ω</mi>
+                            <mi>t</mi>
+                        </mrow>
+                    </msup>
+                    <mi>dω</mi>
+                </math>
+            </p>
+
+            <div align="center">
+                <img width="600px" src="img/fourier-transform.png" alt="Визуализация преобразования Фурье">
+                <div class="image-caption">Разложение сигнала на частотные компоненты с помощью преобразования Фурье
+                </div>
+            </div>
+
+            <h4>Примеры применения</h4>
+
+            <ul>
+                <li><strong>Обработка сигналов:</strong> Выделение полезного сигнала из шума, фильтрация, сжатие данных.
+                </li>
+                <li><strong>Обработка изображений:</strong> Форматы сжатия типа JPEG используют дискретное косинусное
+                    преобразование (вариант преобразования Фурье).</li>
+                <li><strong>Квантовая механика:</strong> Соотношение между координатным и импульсным представлениями
+                    волновой функции.</li>
+                <li><strong>Спектральный анализ:</strong> Определение частотных компонент звука, света или любых других
+                    волновых процессов.</li>
+            </ul>
+
+            <h4>Пример: Разложение прямоугольного импульса</h4>
+
+            <p>Рассмотрим прямоугольный импульс длительностью 2a:</p>
+
+            <p class="centered">
+                <math display="inline">
+                    <mi>f</mi>
+                    <mo>(</mo>
+                    <mi>t</mi>
+                    <mo>)</mo>
+                    <mo>=</mo>
+                    <mrow>
+                        <mo>{</mo>
+                        <mtable>
+                            <mtr>
+                                <mtd>
+                                    <mn>1</mn>
+                                </mtd>
+                                <mtd>
+                                    <mtext>если</mtext>
+                                    <mo>|</mo>
+                                    <mi>t</mi>
+                                    <mo>|</mo>
+                                    <mo>≤</mo>
+                                    <mi>a</mi>
+                                </mtd>
+                            </mtr>
+                            <mtr>
+                                <mtd>
+                                    <mn>0</mn>
+                                </mtd>
+                                <mtd>
+                                    <mtext>если</mtext>
+                                    <mo>|</mo>
+                                    <mi>t</mi>
+                                    <mo>|</mo>
+                                    <mo>></mo>
+                                    <mi>a</mi>
+                                </mtd>
+                            </mtr>
+                        </mtable>
+                    </mrow>
+                </math>
+            </p>
+
+            <p>Преобразование Фурье этой функции:</p>
+
+            <p class="centered">
+                <math display="inline">
+                    <mi>F</mi>
+                    <mo>(</mo>
+                    <mi>ω</mi>
+                    <mo>)</mo>
+                    <mo>=</mo>
+                    <msubsup>
+                        <mo>∫</mo>
+                        <mrow>
+                            <mo>-</mo>
+                            <mi>a</mi>
+                        </mrow>
+                        <mi>a</mi>
+                    </msubsup>
+                    <msup>
+                        <mi>e</mi>
+                        <mrow>
+                            <mo>-</mo>
+                            <mi>i</mi>
+                            <mi>ω</mi>
+                            <mi>t</mi>
+                        </mrow>
+                    </msup>
+                    <mi>dt</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mrow>
+                            <mn>2</mn>
+                            <mi>sin</mi>
+                            <mo>(</mo>
+                            <mi>ω</mi>
+                            <mi>a</mi>
+                            <mo>)</mo>
+                        </mrow>
+                        <mi>ω</mi>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mn>2</mn>
+                    <mi>a</mi>
+                    <mi>sinc</mi>
+                    <mo>(</mo>
+                    <mi>ω</mi>
+                    <mi>a</mi>
+                    <mo>)</mo>
+                </math>
+            </p>
+
+            <div align="center">
+                <img width="600px" src="img/rect-sinc.png" alt="Прямоугольный импульс и его спектр">
+                <div class="image-caption">Прямоугольный импульс во временной области (слева) и его спектр в частотной
+                    области (справа)</div>
+            </div>
+
+            <h4>Дискретное преобразование Фурье (ДПФ)</h4>
+
+            <p>В практических приложениях часто используется дискретное преобразование Фурье для оцифрованных сигналов:
+            </p>
+
+            <p class="centered">
+                <math display="inline">
+                    <msub>
+                        <mi>X</mi>
+                        <mi>k</mi>
+                    </msub>
+                    <mo>=</mo>
+                    <munderover>
+                        <mo>∑</mo>
+                        <mrow>
+                            <mi>n</mi>
+                            <mo>=</mo>
+                            <mn>0</mn>
+                        </mrow>
+                        <mrow>
+                            <mi>N</mi>
+                            <mo>-</mo>
+                            <mn>1</mn>
+                        </mrow>
+                    </munderover>
+                    <msub>
+                        <mi>x</mi>
+                        <mi>n</mi>
+                    </msub>
+                    <msup>
+                        <mi>e</mi>
+                        <mrow>
+                            <mo>-</mo>
+                            <mi>i</mi>
+                            <mn>2</mn>
+                            <mi>π</mi>
+                            <mi>k</mi>
+                            <mi>n</mi>
+                            <mo>/</mo>
+                            <mi>N</mi>
+                        </mrow>
+                    </msup>
+                </math>
+            </p>
+
+            <p>Где N — количество отсчетов сигнала, n — индекс во временной области, k — индекс в частотной области.</p>
+
+            <p>Быстрое преобразование Фурье (БПФ) — эффективный алгоритм вычисления ДПФ, снижающий вычислительную
+                сложность с O(N²) до O(N log N).</p>
+
+            <div class="highlight">
+                <p>Именно использование комплексных чисел в преобразовании Фурье делает его универсальным инструментом
+                    во многих областях науки и техники — от обработки звука на вашем смартфоне до компьютерной
+                    томографии в медицине.</p>
+            </div>
+        </section>
+
+        <h3>3. Инженерия и прикладные науки</h3>
+        <p>Комплексные числа широко используются в различных инженерных областях:</p>
+        <ul>
+            <li><strong>Обработка сигналов:</strong> анализ временных рядов, фильтрация шумов, частотный анализ и
+                обработка изображений.</li>
+            <li><strong>Теория управления:</strong> передаточные функции и анализ устойчивости систем.</li>
+            <li><strong>Электротехника:</strong> анализ цепей переменного тока, импеданс и проектирование фильтров.</li>
+            <li><strong>Аэродинамика:</strong> описание воздушных потоков вокруг объектов сложной формы.</li>
+            <li><strong>Компьютерная графика:</strong> эффективная реализация вращений и преобразований в
+                3D-пространстве.</li>
+        </ul>
+
+        <div class="highlight">
+            <p>Преобразование Фурье, одно из наиболее важных математических инструментов в инженерии, использует
+                комплексные числа для разложения сигналов на синусоидальные компоненты. Это позволяет анализировать
+                частотные характеристики сигналов, что крайне важно для обработки звука, изображений и во многих других
+                приложениях.</p>
+        </div>
+
+        <h3>4. Информационные технологии</h3>
+        <p>В современных IT-системах комплексные числа применяются в:</p>
+        <ul>
+            <li><strong>Алгоритмах сжатия данных:</strong> JPEG, MP3 и другие форматы используют преобразование Фурье на
+                основе комплексных чисел.</li>
+            <li><strong>Криптографии:</strong> некоторые современные алгоритмы шифрования основаны на свойствах
+                комплексных чисел.</li>
+            <li><strong>Искусственном интеллекте:</strong> комплексные нейронные сети могут иметь преимущества в
+                определенных задачах обработки сигналов.</li>
+            <li><strong>Квантовых вычислениях:</strong> состояния кубитов описываются с помощью комплексных чисел.</li>
+        </ul>
+    </section>
+
+    <section id="conclusion">
+        <h2>Заключение</h2>
+        <p>Мнимая единица и комплексные числа — это не просто математические абстракции, а мощные инструменты, которые
+            позволяют решать реальные задачи в физике, инженерии и информационных технологиях. Несмотря на свое
+            исторически "мнимое" название, комплексные числа имеют вполне реальное применение:</p>
+
+        <ul>
+            <li>Они расширяют наше понимание математических структур, предоставляя универсальное поле для решения
+                алгебраических уравнений.</li>
+            <li>Позволяют более элегантно описывать физические явления, от электромагнитных волн до квантовых состояний.
+            </li>
+            <li>Лежат в основе множества современных технологий — от сотовой связи до компьютерной томографии.</li>
+            <li>Упрощают сложные вычисления в инженерных и научных задачах.</li>
+        </ul>
+
+        <p>История развития концепции комплексных чисел показывает, как математические идеи, изначально встреченные со
+            скептицизмом, могут стать фундаментальными инструментами научного и технического прогресса. От "мнимых"
+            решений кубических уравнений в XVI веке до квантовых вычислений XXI века — комплексные числа продолжают
+            играть центральную роль в нашем понимании мира.</p>
+
+        <div class="highlight">
+            <p>Формула Эйлера e<sup>iπ</sup> + 1 = 0, связывающая пять фундаментальных математических констант (0, 1, e,
+                π, i), часто называется "самой красивой формулой в математике" и является ярким примером элегантности и
+                мощи комплексных чисел.</p>
+        </div>
+
+        <p>Изучение комплексных чисел не только расширяет математический кругозор, но и развивает абстрактное мышление,
+            позволяя видеть скрытые связи между различными областями знаний. Понимание концепции комплексных чисел
+            открывает двери к более глубокому пониманию многих других математических и физических теорий.</p>
+    </section>
+
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <footer>
+        <p>© 2025 Математика и комплексные числа</p>
+        <p>Разработано для образовательных целей</p>
+    </footer>
+
+    <script>
+        // Скрипт для кнопки "Наверх"
+        window.onscroll = function () {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            var backToTopButton = document.getElementById("backToTop");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        }
+
+        document.getElementById("backToTop").addEventListener("click", function (e) {
+            e.preventDefault();
+            document.body.scrollTop = 0; // Для Safari
+            document.documentElement.scrollTop = 0; // Для остальных браузеров
+        });
+
+        // Плавная прокрутка для ссылок навигации
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+<div align="center">
+    <img width="512px" src="img/mem1.webp">
+</div>
+
+</html>
